@@ -16,7 +16,7 @@ const banner = `/**
  * @module ${pkg.name}
  * @version ${pkg.version}
  * @file ${pkg.description}
- * @copyright Ethereum Foundation 2022
+ * @copyright Privacy and Scaling Exploration 2023
  * @license ${pkg.license}
  * @see [Github]{@link ${pkg.homepage}}
 */`

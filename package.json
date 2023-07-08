@@ -1,9 +1,10 @@
 {
   "name": "discreetly-interfaces",
   "version": "0.1.0",
-  "description": "",
-  "author": "",
-  "license": "ISC",
+  "description": "Common interfaces and utilities for discreetly",
+  "author": "AtHeartEngineer",
+  "homepage": "https://github.com/Discreetly",
+  "license": "MIT",
   "scripts": {
     "build": "rollup --config rollup.config.mjs",
     "test": "jest",
