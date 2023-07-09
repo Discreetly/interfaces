@@ -43,6 +43,7 @@ export interface RoomI {
 
 export interface RoomGroupI {
   name: string;
+  id: bigint;
   rooms: RoomI[];
 }
 
