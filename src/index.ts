@@ -24,6 +24,8 @@ export interface MessageI {
   room?: RLNFullProof['rlnIdentifier'];
   message: string;
   proof?: RLNFullProof;
+  epoch?: number | bigint;
+  timestamp?: string; // unix epoch time in ms as string
 }
 
 export interface SystemMessageI {
