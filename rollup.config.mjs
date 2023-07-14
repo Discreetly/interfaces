@@ -6,6 +6,7 @@ import json from '@rollup/plugin-json'
 import nodePolyfills from 'rollup-plugin-polyfill-node'
 import replace from '@rollup/plugin-replace'
 import { visualizer } from 'rollup-plugin-visualizer'
+import sourcemaps from 'rollup-plugin-include-sourcemaps';
 import cleaner from 'rollup-plugin-cleaner'
 import * as fs from 'fs'
 
@@ -32,7 +33,6 @@ const visualizerPlugin = visualizer({
   filename: 'stats.html',
   template: 'sunburst',
 })
-
 const nodePlugins = [
   typescriptPlugin,
   // `browser: false` is required for `fs` and other Node.js core modules to be resolved correctly
@@ -41,6 +41,7 @@ const nodePlugins = [
   commonjs(),
   // Parse JSON files and make them ES modules. Required when bundling circomlib
   json(),
+
 ]
 
 const browserPlugins = [
@@ -69,7 +70,7 @@ export default [
   // Node.js build
   {
     input,
-    output: { file: pkg.main, format: 'cjs', banner },
+    output: { file: pkg.main, format: 'cjs', banner, sourcemap: true, },
     external: Object.keys(pkg.dependencies),
     plugins: [
       cleaner({
@@ -79,15 +80,17 @@ export default [
       }),
       ...nodePlugins,
       visualizerPlugin,
+      sourcemaps()
     ],
   },
   // Browser build
   {
     input,
-    output: { file: pkg.module, format: 'es', banner },
+    output: { file: pkg.module, format: 'es', banner, sourcemap: true, },
     plugins: [
       ...browserPlugins,
       visualizerPlugin,
+      sourcemaps()
     ],
   },
 ]
