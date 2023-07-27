@@ -50,7 +50,6 @@ export interface ServerI {
   version?: string;
   serverInfoEndpoint: string;
   messageHandlerSocket?: string; // Default port for websocket connections
-  publicMembership?: MembershipI;
-  rooms: RoomI[];
+  rooms?: RoomI[];
   selectedRoom?: RoomI['id'];
 }
