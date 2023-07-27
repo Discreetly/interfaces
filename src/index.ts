@@ -37,16 +37,11 @@ export interface SystemMessageI {
 export interface RoomI {
   id: RLNFullProof['rlnIdentifier'] | string; // RLN Identifier
   name: string; // Readable name
-  rateLimit?: number; // Milliseconds between messages
+  rateLimit?: number; // Milliseconds between epochs
+  messageLimit?: number; // default number of messages per epoch per user
   membership?: MembershipI; // List of Identity Commitments, or a contract address for an RLN contract
   type?: RoomType; // Public or private, if undefinied, assume public
   messageHandlerSocket?: string; // Port for websocket connections
-}
-
-export interface RoomGroupI {
-  name: string;
-  id: bigint;
-  rooms: RoomI[];
 }
 
 export interface ServerI {
@@ -56,6 +51,6 @@ export interface ServerI {
   serverInfoEndpoint: string;
   messageHandlerSocket?: string; // Default port for websocket connections
   publicMembership?: MembershipI;
-  roomGroups: RoomGroupI[];
+  rooms: RoomI[];
   selectedRoom?: RoomI['id'];
 }
