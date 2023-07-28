@@ -20,7 +20,8 @@ export interface RLNContractI {
 }
 
 export interface MessageI {
-  id?: string; // internal nullifier as string
+  id?: string; // database ID
+  messageId?: string; // internal nullifier as string
   room?: RLNFullProof['rlnIdentifier'];
   message: string;
   proof?: RLNFullProof;
@@ -35,7 +36,8 @@ export interface SystemMessageI {
 }
 
 export interface RoomI {
-  id: RLNFullProof['rlnIdentifier'] | string; // RLN Identifier
+  id: string; // database ID
+  roomId: RLNFullProof['rlnIdentifier'] | string; // RLN Identifier
   name: string; // Readable name
   rateLimit?: number; // Milliseconds between epochs
   userMessageLimit?: number; // default number of messages per epoch per user
