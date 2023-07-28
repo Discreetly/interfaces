@@ -44,6 +44,8 @@ export interface RoomI {
   membership?: MembershipI; // List of Identity Commitments, or a contract address for an RLN contract
   type?: RoomType; // Public or private, if undefinied, assume public
   messageHandlerSocket?: string; // Port for websocket connections
+  messages?: MessageI[]; // this is a list of messages DATABASE REFERENCES to messages
+  epochs?: any[]; // this is for use in the db, not for the client
 }
 
 export interface ServerI {
