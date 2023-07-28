@@ -22,7 +22,7 @@ export interface RLNContractI {
 export interface MessageI {
   id?: string; // database ID
   messageId?: string; // internal nullifier as string
-  room?: RLNFullProof['rlnIdentifier'];
+  roomId?: RLNFullProof['rlnIdentifier'];
   message: string;
   proof?: RLNFullProof;
   epoch?: number | bigint;
