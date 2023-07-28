@@ -38,7 +38,7 @@ export interface RoomI {
   id: RLNFullProof['rlnIdentifier'] | string; // RLN Identifier
   name: string; // Readable name
   rateLimit?: number; // Milliseconds between epochs
-  messageLimit?: number; // default number of messages per epoch per user
+  userMessageLimit?: number; // default number of messages per epoch per user
   membership?: MembershipI; // List of Identity Commitments, or a contract address for an RLN contract
   type?: RoomType; // Public or private, if undefinied, assume public
   messageHandlerSocket?: string; // Port for websocket connections
