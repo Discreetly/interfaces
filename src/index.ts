@@ -9,9 +9,15 @@ export enum RoomType {
   SECURE = 'secure'
 }
 
+export interface BandadaGroupI {
+  groupID: string;
+  url: string;
+}
+
 export interface MembershipI {
   identityCommitments?: IdentityCommitmentT[];
   rlnContract?: RLNContractI;
+  bandadaGroup?: BandadaGroupI;
 }
 
 export interface RLNContractI {
