@@ -1,6 +1,6 @@
 import type { RLNFullProof } from 'rlnjs';
 export { str2BigInt, genId, randomBigInt } from './utils';
-export type IdentityCommitmentT = bigint;
+export type IdentityCommitmentT = bigint | string;
 
 export enum RoomType {
   PUBLIC = 'PUBLIC',
