@@ -46,7 +46,7 @@ export interface RoomI {
   rateLimit?: number; // Milliseconds between epochs
   banRateLimit?: number; // starting number of epochs banned for
   userMessageLimit?: number; // default number of messages per epoch per user
-  membershipType?: RoomMembershipType;
+  membershipType?: RoomMembershipType | string;
   identities?: IdentityCommitmentT[];
   contractAddress?: RLNContractI;
   bandadaAddress?: BandadaGroupI;
