@@ -3,23 +3,15 @@ export { str2BigInt, genId, randomBigInt } from './utils';
 export type IdentityCommitmentT = bigint;
 
 export enum RoomType {
-  PUBLIC = 'public',
-  PRIVATE = 'private',
-  PIXEL = 'pixel'
+  PUBLIC = 'PUBLIC',
+  PRIVATE = 'PRIVATE',
+  PIXEL = 'PIXEL'
 }
 
 export interface BandadaGroupI {
   groupID: string;
   url: string;
 }
-
-export interface MembershipI {
-  type?: RoomMembershipType;
-  identityCommitments?: IdentityCommitmentT[];
-  rlnContract?: RLNContractI;
-  bandadaGroup?: BandadaGroupI;
-}
-
 export interface RLNContractI {
   address: string;
   chainId: number;
@@ -54,11 +46,14 @@ export interface RoomI {
   rateLimit?: number; // Milliseconds between epochs
   banRateLimit?: number; // starting number of epochs banned for
   userMessageLimit?: number; // default number of messages per epoch per user
-  membership?: MembershipI; // List of Identity Commitments, or a contract address for an RLN contract
-  type?: RoomType; // Public or private, if undefinied, assume public
-  messageHandlerSocket?: string; // Port for websocket connections
-  messages?: MessageI[]; // this is a list of messages DATABASE REFERENCES to messages
+  membershipType?: RoomMembershipType;
+  identities?: IdentityCommitmentT[];
+  contractAddress?: RLNContractI;
+  bandadaAddress?: BandadaGroupI;
   epochs?: any[]; // this is for use in the db, not for the client
+  messages?: MessageI[]; // this is a list of messages DATABASE REFERENCES to messages
+  claimCodes?: string[]; // this is a list of claim codes for the room
+  type?: RoomType; // Public or private, if undefinied, assume public
 }
 
 export interface ServerI {
