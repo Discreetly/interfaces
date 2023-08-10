@@ -33,7 +33,7 @@ export interface SystemMessageI {
   room?: RLNFullProof['rlnIdentifier']; // optionally send it to one room or all rooms
 }
 
-enum RoomMembershipType {
+export enum RoomMembershipType {
   IDENTITY_LIST = 'IDENTITY_LIST',
   RLN_CONTRACT = 'RLN_CONTRACT',
   BANDADA = 'BANDADA'
