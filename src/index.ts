@@ -37,7 +37,7 @@ export interface RoomI {
   membershipType?: string;
   identities?: IdentityCommitmentT[];
   contractAddress?: RLNContractI | string;
-  bandadaAddress?: BandadaGroupI | string;
+  bandadaAddress?: BandadaGroupI;
   epochs?: any[]; // this is for use in the db, not for the client
   messages?: MessageI[]; // this is a list of messages DATABASE REFERENCES to messages
   claimCodes?: string[]; // this is a list of claim codes for the room
