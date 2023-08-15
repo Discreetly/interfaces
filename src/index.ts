@@ -16,7 +16,7 @@ export interface MessageI {
   messageId?: string; // internal nullifier as string
   roomId?: RLNFullProof['rlnIdentifier'] | string;
   message: string;
-  proof?: RLNFullProof;
+  proof?: RLNFullProof | string;
   epoch?: number | bigint;
   timestamp?: string; // unix epoch time in ms as string
 }
