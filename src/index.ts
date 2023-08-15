@@ -14,7 +14,7 @@ export interface RLNContractI {
 export interface MessageI {
   id?: string; // database ID
   messageId?: string; // internal nullifier as string
-  roomId?: RLNFullProof['rlnIdentifier'];
+  roomId?: RLNFullProof['rlnIdentifier'] | string;
   message: string;
   proof?: RLNFullProof;
   epoch?: number | bigint;
@@ -24,7 +24,7 @@ export interface MessageI {
 export interface SystemMessageI {
   timestamp: string; // unix epoch time in ms as string
   message: string; // plain text message
-  room?: RLNFullProof['rlnIdentifier']; // optionally send it to one room or all rooms
+  room?: RLNFullProof['rlnIdentifier'] | string; // optionally send it to one room or all rooms
 }
 
 export interface RoomI {
@@ -45,7 +45,7 @@ export interface RoomI {
 }
 
 export interface ServerI {
-  id: bigint;
+  id: bigint | string;
   name: string;
   version?: string;
   serverInfoEndpoint?: string;
