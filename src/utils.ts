@@ -8,9 +8,9 @@ export function str2BigInt(str: string) {
   return BigInt(num);
 }
 
-export function genId(serverID: bigint, roomName: string | bigint | number) {
+export function genId(serverID: string | bigint | number, roomName: string | bigint | number) {
   if (typeof roomName === 'string') {
-    return poseidon2([serverID, str2BigInt(roomName)]);
+    return poseidon2([BigInt(serverID), str2BigInt(roomName)]);
   }
   return poseidon2([serverID, BigInt(roomName)]);
 }

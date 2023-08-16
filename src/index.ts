@@ -45,11 +45,9 @@ export interface RoomI {
 }
 
 export interface ServerI {
-  id: bigint | string;
-  name: string;
+  id?: bigint | string;
+  name?: string;
   version?: string;
-  serverInfoEndpoint?: string;
-  messageHandlerSocket?: string; // Default port for websocket connections
-  rooms?: RoomI[];
-  selectedRoom?: RoomI['roomId'];
+  url?: string;
+  rooms?: string[];
 }
