@@ -1,5 +1,5 @@
 import type { RLNFullProof } from 'rlnjs';
-export { str2BigInt, genId, randomBigInt } from './utils';
+export * from './utils';
 export type IdentityCommitmentT = bigint | string;
 
 export interface MessageI {
@@ -27,6 +27,7 @@ export interface RoomI {
   userMessageLimit?: number; // default number of messages per epoch per user
   membershipType?: string;
   identities?: IdentityCommitmentT[];
+  semaphoreIdentities?: IdentityCommitmentT[];
   contractAddress?: string; // RLN_CONTRACT as "chainID:0xADDRESS"
   bandadaAddress?: string; // Bandada root url address
   bandadaGroupId?: string; // Bandada group id
