@@ -9,11 +9,11 @@ export interface MessageI {
   message: string;
   proof?: RLNFullProof | string;
   epoch?: number | bigint;
-  timestamp?: string; // unix epoch time in ms as string
+  timeStamp?: string; // unix epoch time in ms as string
 }
 
 export interface SystemMessageI {
-  timestamp: string; // unix epoch time in ms as string
+  timeStamp: string; // unix epoch time in ms as string
   message: string; // plain text message
   room?: RLNFullProof['rlnIdentifier'] | string; // optionally send it to one room or all rooms
 }
