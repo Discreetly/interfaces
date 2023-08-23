@@ -9,7 +9,7 @@ export interface MessageI {
   message: string;
   proof?: RLNFullProof | string;
   epoch?: number | bigint;
-  timeStamp?: string; // unix epoch time in ms as string
+  timeStamp?: string | Date | number; // unix epoch time in ms as string
 }
 
 export interface SystemMessageI {
