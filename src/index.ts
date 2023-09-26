@@ -2,9 +2,12 @@ import type { RLNFullProof } from 'rlnjs';
 import { MessageType, MessageInterfaces } from './messageTypes';
 export * from './utils';
 export * from './messageTypes';
+
 export type IdentityCommitmentT = bigint | string;
 export type RoomType = 'PUBLIC' | 'PRIVATE';
 export type MembershipType = 'IDENTITY_LIST' | 'BANDADA_GROUP';
+export type EmepheralType = 'EPHEMERAL' | 'PERSISTENT';
+export type EncryptedType = 'AES' | 'PLAINTEXT';
 
 export interface MessageI {
   id?: string; // database ID
@@ -15,6 +18,7 @@ export interface MessageI {
   proof?: RLNFullProof | string;
   epoch?: number | bigint;
   timeStamp?: string | Date | number; // unix epoch time in ms as string
+  encrypted?: EncryptedType; // the message is encrypted or not
 }
 
 export interface SystemMessageI {
@@ -41,6 +45,8 @@ export interface RoomI {
   messages?: MessageI[]; // this is a list of messages DATABASE REFERENCES to messages
   claimCodes?: string[]; // this is a list of claim codes for the room
   type?: RoomType | string; // Room Type // TODO remove string once we have a migration
+  ephemeral?: EmepheralType; // Whether messages are saved or not
+  encrypted?: EncryptedType; // if true, messages will be encrypted
 }
 
 export interface ServerI {
