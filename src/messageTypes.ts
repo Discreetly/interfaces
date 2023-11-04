@@ -1,17 +1,13 @@
-export type MessageType = 'TEXT' | 'PIXEL' | 'BBS' | 'POLL';
-export type MessageInterfaces = string | PixelMessage | BBSMessage | PollMessage;
+export type MessageType = 'TEXT' | 'PIXEL' | 'POLL' | 'DMREQUEST' | string;
+export type MessageInterfaces = string | PixelMessage | PollMessage;
 
 export type HexColor = `#${string}`;
 
+// Even in an encrypted room the x/y will be unencrypted so we can overwrite the pixel with the encrypted value in the db
 export interface PixelMessage {
   x: number;
   y: number;
-  color: HexColor;
-}
-
-export interface BBSMessage {
-  title: string;
-  body: string;
+  color: HexColor | string;
 }
 
 export interface PollMessage {

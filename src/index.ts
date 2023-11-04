@@ -19,6 +19,8 @@ export interface MessageI {
   epoch?: number | bigint;
   timeStamp?: string | Date | number; // unix epoch time in ms as string
   encrypted?: EncryptedType; // the message is encrypted or not
+  responseTo?: string; // internal nullifier of the message this is a response to, this could be a reply to a message, a poll response, or a request for a DM
+  sessionID?: string; // session ID for the message
 }
 
 export interface SystemMessageI {
