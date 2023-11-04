@@ -1,4 +1,4 @@
-export type MessageType = 'TEXT' | 'PIXEL' | 'POLL' | 'DMREQUEST' | string;
+export type MessageType = 'TEXT' | 'PIXEL' | 'POLL' | 'DMREQUEST' | string | null;
 export type MessageInterfaces = string | PixelMessage | PollMessage;
 
 export type HexColor = `#${string}`;
